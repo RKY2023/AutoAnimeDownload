@@ -404,7 +404,3 @@ def insert_or_Update(update,animeDataFrame,ani):
  #less than a week then schedule it
 # def addtoSchedule(ts, tt):
 # print(dt.today().strftime("%Y"))
-
-initialize_json()
-getUrlLinkCSV()
-checkAndUpdate()
