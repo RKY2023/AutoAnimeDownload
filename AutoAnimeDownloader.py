@@ -28,15 +28,15 @@ print('Run @', ts)
 
 def initialize_json():
     global project_key
-    myclient = pymongo.MongoClient('mongodb+srv://xraj2023:LyfJlpM2nZlWQNh4@cluster0.i4rdwsy.mongodb.net/meetups?retryWrites=true&w=majority&appName=Cluster0')
-    # print(myclient)
-    mydb = myclient["keys"]
-    mycol = mydb["keys"]
+    myclient = pymongo.MongoClient("mongodb+srv://user_0:LksZss_WE76UdPP@publiccluster.xc4crqx.mongodb.net/?retryWrites=true&w=majority&appName=PublicCluster")
+    mydb = myclient["Projects"]
+    mycol = mydb["projects"]
     collist = mydb.list_collection_names()
     if "keys" in collist:
         print("The Keys collection exists.")
     x = mycol.find_one({ "_id": 'AutoAnimeDownloader' })
-    # print(x)
+    print(x)
+    exit()
     project_key = x
 
 def winNotifier(name,title,msg,dur,ico):
@@ -119,7 +119,7 @@ def download(url):
 
 # This downloads the pending anime and then updates it.
 def getUrlLinkCSV(): 
-    df = pd.read_csv(project_key['csv_location'])
+    df = pd.read_csv(csv_location)
     # print(df.to_string()) 
 
     # Get anime to download
