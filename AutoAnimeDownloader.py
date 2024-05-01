@@ -2,11 +2,10 @@ import os
 from bs4 import BeautifulSoup
 import requests
 import time
-import datetime
 from datetime import datetime as dt
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
+# import firebase_admin
+# from firebase_admin import credentials
+# from firebase_admin import firestore
 import subprocess
 import json
 from winotify import Notification, audio
