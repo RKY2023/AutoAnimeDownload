@@ -27,16 +27,17 @@ print('Run @', ts)
 
 def initialize_json():
     global project_key
-    myclient = pymongo.MongoClient("mongodb+srv://user_0:LksZss_WE76UdPP@publiccluster.xc4crqx.mongodb.net/?retryWrites=true&w=majority&appName=PublicCluster")
-    mydb = myclient["Projects"]
-    mycol = mydb["projects"]
-    collist = mydb.list_collection_names()
-    if "keys" in collist:
-        print("The Keys collection exists.")
-    x = mycol.find_one({ "_id": 'AutoAnimeDownloader' })
-    print(x)
-    exit()
-    project_key = x
+    try:    
+        myclient = pymongo.MongoClient("mongodb+srv://user_0:LksZss_WE76UdPP@publiccluster.xc4crqx.mongodb.net/?retryWrites=true&w=majority&appName=PublicCluster")
+        mydb = myclient["Projects"]
+        mycol = mydb["projects"]
+        collist = mydb.list_collection_names()
+        if "keys" in collist:
+            print("The Keys collection exists.")
+        x = mycol.find_one({ "_id": 'AutoAnimeDownloader' })
+        project_key = x
+    except NameError:
+        print(NameError)
 
 def winNotifier(name,title,msg,dur,ico):
     toast = Notification(app_id=name, title=title,msg=msg,duration="long",icon=r"D:\Images\positive-wallpapers-5330423.png")
@@ -400,6 +401,6 @@ def insert_or_Update(update,animeDataFrame,ani):
             print(e)
 
 
- #less than a week then schedule it
+#less than a week then schedule it
 # def addtoSchedule(ts, tt):
 # print(dt.today().strftime("%Y"))
